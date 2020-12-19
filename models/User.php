@@ -6,5 +6,5 @@ use app\core\Model;
 
 class User extends Model
 {
-    // Create relationships between table
+    // Create relationships between tables
 }

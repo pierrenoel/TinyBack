@@ -54,17 +54,7 @@ class Model
         $data = self::getDatabase();
         $table = lcfirst(self::getCalledlass());
 
-
-        foreach($array as $row => $post)
-        {
-            $sql = ("INSERT $table ($row) VALUES (:$post)");
-            /*
-            $statement->bindParam(':'.$row, $post, PDO::PARAM_STR);
-            $statement->execute();
-            */
-        }
-
-        var_dump($sql);
+        // Insert the data
 
     }
 
