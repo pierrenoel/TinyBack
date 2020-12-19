@@ -41,12 +41,12 @@ public function index()
 ```
 
 ```php
-    <?php
-        foreach($users as $user)
-        {
-            echo $user['email'];
-        }
-    ?>
+<?php
+    foreach($users as $user)
+    {
+        echo $user['email'];
+    }
+?>
 ```
 
 ## To do 
