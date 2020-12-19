@@ -52,6 +52,9 @@ public function index()
 ## To do 
 - [ ] Implementing a better router
 - [ ] POST & GET requests
+- [ ] Improve the Model class, cause it sucks!
 - [ ] A singleton for the database
 - [ ] Validation
 - [ ] Auth & sessions
+- [ ] Create the documentation
+- [ ] Implement a cli php
