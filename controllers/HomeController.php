@@ -40,9 +40,7 @@ class HomeController
             'password' => $_POST['password'],
         ]);
 
-        // Need to improve that section!!!
-
-        //View::redirect('/');
+        View::redirect('/');
     }
 
 }

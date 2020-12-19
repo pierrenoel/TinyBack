@@ -27,7 +27,7 @@ Three params:
 - For the foreach
 - The result of the `User::all()`
 
-## Example
+## Example (all)
 ```php
 // Controler HomeCOntroller
 
@@ -48,6 +48,35 @@ public function index()
         echo $user['email'];
     }
 ?>
+```
+
+## Example (show)
+```php
+public function show($id)
+{
+    $user = User::find($id);
+    View::create('show','user',$user);
+}
+```
+
+## Example (create)
+```php
+public function store()
+{
+    Validation::check([
+        $_POST['pseudo'] => 'text',
+        $_POST['email'] => 'email',
+        $_POST['password'] => 'text'
+    ]);
+
+    User::create([
+        'pseudo' => $_POST['pseudo'],
+        'email' => $_POST['email'],
+        'password' => $_POST['password'],
+    ]);
+    
+    View::redirect('/');
+}
 ```
 
 ## To do 
