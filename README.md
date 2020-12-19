@@ -50,8 +50,8 @@ public function index()
 ```
 
 ## To do 
-- [] Implementing a better router
-- [] POST & GET requests
-- [] A singleton for the database
-- [] Validation
-- [] Auth & sessions
+- [ ] Implementing a better router
+- [ ] POST & GET requests
+- [ ] A singleton for the database
+- [ ] Validation
+- [ ] Auth & sessions
