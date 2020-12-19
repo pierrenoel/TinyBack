@@ -25,3 +25,33 @@ Three params:
 - The view
 - For the foreach
 - The result of the `User::all()`
+
+## Example
+```php
+// Controler HomeCOntroller
+
+use app\models\User;
+use app\core\View;
+
+public function index()
+{
+    $users = User::all()
+    View::create('user.index','users',$users);  
+}
+```
+
+```php
+    <?php
+        foreach($users as $user)
+        {
+            echo $user['email'];
+        }
+    ?>
+```
+
+## To do 
+- [] Implementing a better router
+- [] POST & GET requests
+- [] A singleton for the database
+- [] Validation
+- [] Auth & sessions
