@@ -52,6 +52,7 @@ public function index()
 
 ## To do 
 - [ ] Finish the CRUD
+- [ ] Implement templating
 - [ ] Implement a better router
 - [ ] POST & GET requests
 - [ ] Improve the Model class, cause it sucks!
