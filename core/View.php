@@ -10,5 +10,10 @@ class View
         require_once __DIR__."/../views/$view.php";
         return $$loop;
     }
+
+    public static function redirect(string $url)
+    {
+        header("location:$url");
+    }
 }
 

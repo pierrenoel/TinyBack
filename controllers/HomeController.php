@@ -2,8 +2,9 @@
 
 namespace app\controllers;
 
-use app\models\User;
+use app\core\Validation;
 use app\core\View;
+use app\models\User;
 
 class HomeController
 {
@@ -22,6 +23,23 @@ class HomeController
     public function create()
     {
         View::create('create');
+    }
+
+    public function store()
+    {
+        Validation::check([
+            $_POST['pseudo'] => 'text',
+            $_POST['email'] => 'email',
+            $_POST['password'] => 'text'
+        ]);
+
+        User::create([
+            'pseudo' => $_POST['pseudo'],
+            'email' => $_POST['email'],
+            'password' => $_POST['password'],
+        ]);
+
+        //View::redirect('/');
     }
 
 }
