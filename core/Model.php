@@ -40,7 +40,7 @@ class Model
         return $data->query('SELECT * FROM '.$table)->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public static function find($id)
+    public static function find( int $id)
     {
         $data = self::getDatabase();
         $table = lcfirst(self::getCalledlass());
