@@ -18,6 +18,7 @@ User::all(); // Returns an array
 ```php
 use app\models\User;
 use app\core\View;
+
 $users = User::all()
 View::create('user.index','users',$users);
 ```
@@ -50,7 +51,8 @@ public function index()
 ```
 
 ## To do 
-- [ ] Implementing a better router
+- [ ] Finish the CRUD
+- [ ] Implement a better router
 - [ ] POST & GET requests
 - [ ] Improve the Model class, cause it sucks!
 - [ ] A singleton for the database
