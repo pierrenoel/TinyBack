@@ -1,0 +1,15 @@
+{
+    "name": "pierre/tiny-back",
+    "authors": [
+        {
+            "name": "pierrenoel",
+            "email": "pierrenoel1509@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "app\\": "./"
+        }
+    },
+    "require": {}
+}
