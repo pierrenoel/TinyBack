@@ -61,7 +61,7 @@ if($commands[1] == 'help')
     printf("- php tiny serve\n");
     printf("- php tiny new::controller `HomeController`\n");
     printf("- php tiny new::model `User`\n");
-    printf("- php tiny new::migration\n");
+    printf("- php tiny new::migration UserMigration\n");
     printf("- php tiny migrate\n");
 }
 

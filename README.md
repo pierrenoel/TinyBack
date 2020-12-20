@@ -10,7 +10,7 @@ All the commands available:
 - php tiny serve
 - php tiny new::controller `HomeController`
 - php tiny new::model `User`
-- php tiny new::migration
+- php tiny new::migration `UserMigration`
 - php tiny migrate
 ```
 - `php tiny serve` : Tiny launch the website
