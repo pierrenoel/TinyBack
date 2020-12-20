@@ -103,4 +103,4 @@ public function store()
 - [ ] Validation
 - [ ] Auth & sessions
 - [ ] Create the documentation
-- [ ] Implement a cli php
+- [v] Implement a cli php
