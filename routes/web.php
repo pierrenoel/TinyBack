@@ -9,9 +9,6 @@ $split = explode('/',$url);
 if(isset($split[2])) if(preg_match('/^[0-9]*$/',$split[2]))  $id = $split[2];
 if(isset($split[3])) if(preg_match('/^[0-9]*$/',$split[3]))  $id = $split[3];
 
-//Init session
-session_start();
-
 if(isset($url))
 {
     switch ($url)
