@@ -3,6 +3,18 @@
 Before doing anything, remind no using this "little framework" for real projects. The project is 
 still in production. 
 
+## Tiny
+You can create models and controller with Tiny.
+
+```
+php tiny help
+php tiny controller HomeController
+php tiny model User
+```
+
+- When you create a new controller using the tiny command, it creates the controller in the right directory,
+it is the same for the models.
+
 ## Set up the application
 - Configure [to improve] your database in `config.php`
 - Create your routes [to improve] `routes/web.php`

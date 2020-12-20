@@ -54,8 +54,6 @@ class Model
         $data = self::getDatabase();
         $table = lcfirst(self::getCalledlass());
 
-        // Insert the data
-
     }
 
     public static function update(array $data)

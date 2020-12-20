@@ -4,7 +4,6 @@ namespace app\controllers;
 
 use app\core\Validation;
 use app\core\View;
-use app\models\Message;
 use app\models\User;
 
 class HomeController
@@ -40,7 +39,7 @@ class HomeController
             'password' => $_POST['password'],
         ]);
 
-        View::redirect('/');
+        //View::redirect('/');
     }
 
 }

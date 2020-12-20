@@ -1,0 +1,59 @@
+#!/usr/bin.php
+
+<?php
+
+unset($argv[0]);
+
+$commands = [];
+
+foreach($argv as $i => $arg)
+{
+   $commands[$i] = $arg;
+}
+
+// The first who? $commands[1]
+// The second the name of the file $commands[2]
+
+if($commands[1] === 'controller')
+{
+   if(!empty($commands[2]))
+   {
+        $newFile = "$commands[2].php";
+
+        $file_handle = fopen("controllers/".$newFile, "w");
+        $file_contents = "<?php \n\n namespace app\controllers; \n\n class $commands[2]\n{\n\n}";
+
+        fwrite($file_handle, $file_contents);
+        fclose($file_handle);
+   }
+   else
+    {
+        print('Quel est le nom du controller?');
+   }
+}
+
+if($commands[1] === 'model')
+{
+   if(!empty($commands[2]))
+   {
+        $newFile = "$commands[2].php";
+
+        $file_handle = fopen("models/".$newFile, "w");
+        $file_contents = "<?php \n\n namespace app\models; \n\n use app\core\Model; \n\n class $commands[2] extends Model\n{\n\n}";
+
+        fwrite($file_handle, $file_contents);
+        fclose($file_handle);
+   }
+   else
+    {
+        print('Quel est le nom du controller?');
+   }
+}
+
+if($commands[1] == 'help')
+{
+    printf("All the commands available:\n");
+    printf("- php tiny controller `HomeController`\n");
+    printf("- php tiny model `User`\n");
+}
+
