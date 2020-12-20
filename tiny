@@ -14,7 +14,7 @@ foreach($argv as $i => $arg)
 // The first who? $commands[1]
 // The second the name of the file $commands[2]
 
-if($commands[1] === 'controller')
+if($commands[1] === 'new::controller')
 {
    if(!empty($commands[2]))
    {
@@ -32,7 +32,12 @@ if($commands[1] === 'controller')
    }
 }
 
-if($commands[1] === 'model')
+if($commands[1] === 'serve')
+{
+    `php -S localhost:8080`;
+}
+
+if($commands[1] === 'new::model')
 {
    if(!empty($commands[2]))
    {
@@ -53,7 +58,8 @@ if($commands[1] === 'model')
 if($commands[1] == 'help')
 {
     printf("All the commands available:\n");
-    printf("- php tiny controller `HomeController`\n");
-    printf("- php tiny model `User`\n");
+    printf("- php tiny serve\n");
+    printf("- php tiny new::controller `HomeController`\n");
+    printf("- php tiny new::model `User`\n");
 }
 

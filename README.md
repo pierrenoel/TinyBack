@@ -3,17 +3,17 @@
 Before doing anything, remind no using this "little framework" for real projects. The project is 
 still in production. 
 
-## Tiny
-You can create models and controller with Tiny.
-
+# Tiny
+If you execute this command ```php tiny help```, it diplays informations like
 ```
-php tiny help
-php tiny controller HomeController
-php tiny model User
+All the commands available:
+- php tiny serve
+- php tiny new::controller `HomeController`
+- php tiny new::model `User`
 ```
-
-- When you create a new controller using the tiny command, it creates the controller in the right directory,
-it is the same for the models.
+- `php tiny serve` : Tiny launch the website
+- `php tiny new::controller HomeController` : Tiny creates a new controller.
+- `php tiny new::model Usrr` : Tiny creates a new model.
 
 ## Set up the application
 - Configure [to improve] your database in `config.php`
