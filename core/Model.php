@@ -46,18 +46,28 @@ class Model
         $table = lcfirst(self::getCalledlass());
 
         return $data->query("SELECT * FROM $table WHERE id = $id")->fetch(PDO::FETCH_ASSOC);
-
     }
 
     public static function create(array $array)
     {
         $data = self::getDatabase();
         $table = lcfirst(self::getCalledlass());
+
+        $sql = 'INSERT INTO ' . $table . ' ';
+        $columns = '(';
+        $values = '(';
+
+        foreach($array as $k => $v)
+        {
+            $columns .= '`' . $k . '`, ';
+            $values .= "'" . $v . "', ";
+        }
+
+        $columns = rtrim($columns, ', ') . ')';
+        $values = rtrim($values, ', ') . ')';
+        $sql .= $columns . ' VALUES ' . $values;
+        $q = $data->prepare($sql);
+        $q->execute();
     }
 
-    public static function update(array $data)
-    {
-        $data = self::getDatabase();
-        $table = lcfirst(self::getCalledlass());
-    }
 }

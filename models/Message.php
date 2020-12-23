@@ -1,7 +1,8 @@
-<?php
+<?php 
 
-namespace app\models;
-use app\core\Model;
+namespace app\models; 
+
+use app\core\Model; 
 
 class Message extends Model
 {

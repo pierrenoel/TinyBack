@@ -19,7 +19,15 @@ All the commands available:
 
 ## Set up the application
 - Configure [to improve] your database in `config.php`
-- Create your routes [to improve] `routes/web.php`
+
+## Routes
+```php
+$route = new Route();
+$route->get('/messages','GET','MessageController@index');
+$route->get('/message/create','GET','MessageController@create');
+$route->post('/message/create','POST','MessageController@store');
+$route->get('/message/show/{id},'GET','MessageController@show');
+```
 
 ## Request a table from the database
 - Create a new Model file and import it in the controller

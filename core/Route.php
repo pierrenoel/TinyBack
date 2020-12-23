@@ -30,7 +30,6 @@ class Route
     {
         if($request == 'POST') $this->routes[$url]['POST'] = $controller;
         if($request == 'GET') $this->routes[$url]['GET'] = $controller;
-
     }
 
     protected function explode(string $controller)
@@ -40,19 +39,32 @@ class Route
 
     protected function generate(string $method)
     {
-
         $url = $_SERVER['REQUEST_URI'];
-
         $request = $this->explode($this->routes[$url][$method]);
 
         $newController = $request[0];
         $newMethod = $request[1];
 
-        $className = "app\\controllers\\{$newController}";
-        $controller = new $className();
+        if($method == 'POST')
+        {
+            $post = [];
 
-        if($this->id !== 'null')$controller->$newMethod($this->id);
-        else $controller->$newMethod();
+            foreach ($_POST as $key => $value) { $post[$key] = $value; }
+
+            $className = "app\\controllers\\{$newController}";
+            $controller = new $className();
+
+            $controller->$newMethod($post);
+        }
+
+        if($method == 'GET')
+        {
+
+            $className = "app\\controllers\\{$newController}";
+            $controller = new $className();
+
+            $controller->$newMethod($this->id);
+        }
     }
 
     protected function check()
@@ -76,28 +88,18 @@ class Route
 
     public function run()
     {
-
         $request_url = $_SERVER['REQUEST_METHOD'];
         $url = $_SERVER['REQUEST_URI'];
 
         $this->check();
 
-        if(!isset($this->routes[$url]['GET']))
-        {
-            header('location:/');
+        if(!isset($this->routes[$url]['GET'])){
+          header('Location: /');
         }
 
-        if($request_url === 'GET')
-        {
-          $this->generate('GET');
-        }
-
-        if($request_url === 'POST')
-        {
-            $this->generate('POST');
-        }
+        if($request_url === 'GET') $this->generate('GET');
+        if($request_url === 'POST') $this->generate('POST');
 
     }
-
 }
 
