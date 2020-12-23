@@ -6,7 +6,7 @@ use app\core\View;
 
 class ErrorController
 {
-    public function notfound()
+    public function index()
     {
         View::create('error-404');
     }

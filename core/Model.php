@@ -4,7 +4,7 @@
 namespace app\core;
 use PDO;
 
-require_once __DIR__.'/../config.php';
+require_once __DIR__ . '/../config.php';
 
 class Model
 {
@@ -53,16 +53,11 @@ class Model
     {
         $data = self::getDatabase();
         $table = lcfirst(self::getCalledlass());
-
     }
 
     public static function update(array $data)
     {
-        self::getCalledlass();
-
-        foreach($data as $key => $value)
-        {
-            // Traitement pour la database
-        }
+        $data = self::getDatabase();
+        $table = lcfirst(self::getCalledlass());
     }
 }

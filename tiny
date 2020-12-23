@@ -21,20 +21,17 @@ if($commands[1] === 'new::controller')
         $newFile = "$commands[2].php";
 
         $file_handle = fopen("controllers/".$newFile, "w");
-        $file_contents = "<?php \n\n namespace app\controllers; \n\n class $commands[2]\n{\n\n}";
+        $file_contents = "<?php \n\nnamespace app\controllers; \n\nclass $commands[2]\n{\n\n}";
 
         fwrite($file_handle, $file_contents);
         fclose($file_handle);
+
+        printf("$commands[2] a bien été crée!\n");
    }
    else
     {
         print('Quel est le nom du controller?');
    }
-}
-
-if($commands[1] === 'serve')
-{
-    `php -S localhost:8080`;
 }
 
 if($commands[1] === 'new::model')
@@ -44,15 +41,23 @@ if($commands[1] === 'new::model')
         $newFile = "$commands[2].php";
 
         $file_handle = fopen("models/".$newFile, "w");
-        $file_contents = "<?php \n\n namespace app\models; \n\n use app\core\Model; \n\n class $commands[2] extends Model\n{\n\n}";
+        $file_contents = "<?php \n\nnamespace app\models; \n\nuse app\core\Model; \n\nclass $commands[2] extends Model\n{\n\n}";
 
         fwrite($file_handle, $file_contents);
         fclose($file_handle);
+
+        printf("$commands[2] a bien été crée!\n");
    }
    else
     {
         print('Quel est le nom du controller?');
-   }
+     }
+}
+
+if($commands[1] === 'serve')
+{
+     chdir('public');
+    `php -S localhost:8080`;
 }
 
 if($commands[1] == 'help')
