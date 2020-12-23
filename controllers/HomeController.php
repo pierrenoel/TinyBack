@@ -17,12 +17,12 @@ class HomeController
     public function show($id)
     {
         $user = User::find($id);
-        View::create('show','user',$user);
+        View::create('users/show','user',$user);
     }
 
     public function create()
     {
-        View::create('create');
+        View::create('users/create');
     }
 
     public function store($request)

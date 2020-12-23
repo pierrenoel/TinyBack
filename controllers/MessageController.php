@@ -12,4 +12,11 @@ class MessageController
         $messages = Message::all();
         View::create('messages/index','messages',$messages);
     }
+
+    public function show($id)
+    {
+        $message = Message::find($id);
+
+        View::create('messages/show','message',$message);
+    }
 }

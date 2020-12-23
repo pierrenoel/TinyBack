@@ -17,5 +17,8 @@
       }
     ?>
 
+<a href="/user/create">Nouvel utilisateur</a>
+<a href="/messages">Afficher tous les messages</a>
+
 </body>
 </html>

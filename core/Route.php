@@ -59,7 +59,6 @@ class Route
 
         if($method == 'GET')
         {
-
             $className = "app\\controllers\\{$newController}";
             $controller = new $className();
 
@@ -80,7 +79,9 @@ class Route
                 if(isset($split[3])) if(preg_match('/^[0-9]*$/',$split[3]))  $this->id = $split[3];
 
                 $newUrl = str_replace('{id}',$this->id,$url2);
-                $this->routes[$newUrl]['GET'] = $this->controller;
+                $newControlleur = $this->routes[$url2]['GET'];
+
+                $this->routes[$newUrl]['GET'] = $newControlleur;
             }
         }
     }
@@ -93,13 +94,9 @@ class Route
 
         $this->check();
 
-        if(!isset($this->routes[$url]['GET'])){
-          header('Location: /');
-        }
-
         if($request_url === 'GET') $this->generate('GET');
         if($request_url === 'POST') $this->generate('POST');
-
+        if(!isset($this->routes[$url]['GET']))header('Location: /');
     }
 }
 
