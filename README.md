@@ -83,18 +83,18 @@ public function show($id)
 
 ## Example (create)
 ```php
-public function store()
+public function store($request)
 {
     Validation::check([
-        $_POST['pseudo'] => 'text',
-        $_POST['email'] => 'email',
-        $_POST['password'] => 'text'
+        $request['pseudo'] => 'text',
+        $request['email'] => 'email',
+        $request['password'] => 'text'
     ]);
 
     User::create([
-        'pseudo' => $_POST['pseudo'],
-        'email' => $_POST['email'],
-        'password' => $_POST['password'],
+        'pseudo' => $request['pseudo'],
+        'email' => $request['email'],
+        'password' => $request['password'],
     ]);
     
     View::redirect('/');
