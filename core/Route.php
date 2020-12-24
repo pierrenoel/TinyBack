@@ -21,7 +21,7 @@ class Route
 
     /*
      * Passing all the data to the put function in order to create a new array
-     * @params string $url, string $request, string $controller
+     * @param string $url, string $request, string $controller
      */
     public function route(string $url,string $request, string $controller)
     {
@@ -37,7 +37,7 @@ class Route
 
     /*
      * Generate the array routes
-     * @params string $url, string $request, string $controller
+     * @param string $url, string $request, string $controller
      */
     protected function put(string $url, string $request, string $controller)
     {
@@ -47,6 +47,9 @@ class Route
 
     }
 
+    /*
+     * Check if there is an {id} in the url of the routes[]
+     */
     protected function check()
     {
         /*
@@ -87,7 +90,7 @@ class Route
 
     /*
      * The Generate method instantiate the controller and call a method
-     * @params string $method
+     * @param string $method
      */
     protected function generate(string $method)
     {
@@ -146,8 +149,7 @@ class Route
 
         /*
      * Call the method from the controller
-     * @params string $controller, $data
-     * @returns a method from the controller called from the url
+     * @param string $controller, $data
      */
     public function generateControllerMethod(string $controller, string $model, $data)
     {
@@ -169,18 +171,18 @@ class Route
 
     /*
    * Explode the controller from its method
-   * @params string $controller
-   * @returns a array
+   * @param string $controller
+   * @return array
    */
     protected function explodeController(string $controller)
     {
         return explode('@',$controller);
     }
 
-    /*
+     /*
       * Explode the url
-      * @params string $url
-      * @returns a array
+      * @param string $url
+      * @return array
       */
     protected function explodeUrl(string $url)
     {
