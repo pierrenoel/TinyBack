@@ -70,4 +70,9 @@ class Model
         $q->execute();
     }
 
+    public static function update(array $array)
+    {
+
+    }
+
 }

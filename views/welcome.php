@@ -1,24 +1,14 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Welcome</title>
-</head>
-<body>
+<?php $title = 'Home';?>
 
-    <h1>Welcome</h1>
-    <?php
-      foreach($users as $user)
-      {
-          ?><p><a href="/user/show/<?php echo $user['id']; ?>"><?php echo $user['pseudo'] ?></a></p><?php
-      }
-    ?>
+<h1>Welcome</h1>
+
+
+<?php
+  foreach($users as $user)
+  {
+      ?><p><a href="/user/show/<?php echo $user['id']; ?>"><?php echo $user['pseudo'] ?></a></p><?php
+  }
+?>
 
 <a href="/user/create">Nouvel utilisateur</a>
 <a href="/messages">Afficher tous les messages</a>
-
-</body>
-</html>

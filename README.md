@@ -26,7 +26,8 @@ $route = new Route();
 $route->get('/messages','GET','MessageController@index');
 $route->get('/message/create','GET','MessageController@create');
 $route->post('/message/create','POST','MessageController@store');
-$route->get('/message/show/{id},'GET','MessageController@show');
+$route->get('/message/show/{id}','GET','MessageController@show');
+$route->run();
 ```
 
 ## Request a table from the database
