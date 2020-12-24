@@ -144,6 +144,29 @@ class Route
         if(!isset($this->routes[$this->url]['GET']))header('Location: /');
     }
 
+        /*
+     * Call the method from the controller
+     * @params string $controller, $data
+     * @returns a method from the controller called from the url
+     */
+    public function generateControllerMethod(string $controller, string $model, $data)
+    {
+        /*
+         * Get the namespace of the controllers
+         */
+        $className = "app\\controllers\\{$controller}";
+
+        /*
+         * Instantiate the new controller
+         */
+        $generateController = new $className();
+
+        /*
+         * Call the right method from the controller, passing some data
+         */
+        $generateController->$model($data);
+    }
+
     /*
    * Explode the controller from its method
    * @params string $controller
@@ -163,21 +186,6 @@ class Route
     {
         return explode('/',$url);
     }
-
-    public function dd($data)
-    {
-        echo '<pre>';
-        var_dump($data);
-        echo '</pre>';
-    }
-
-    public function generateControllerMethod(string $controller, string $model, $data)
-    {
-        $className = "app\\controllers\\{$controller}";
-        $generateController = new $className();
-        $generateController->$model($data);
-    }
-
 
 }
 
