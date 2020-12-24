@@ -107,22 +107,19 @@ class Route
          */
         if($method == 'POST')
         {
-            $post = [];
+            $posts = [];
 
             foreach ($_POST as $key => $value) { $post[$key] = $value; }
 
-            $className = "app\\controllers\\{$newController}";
-            $controller = new $className();
+            $this->generateControllerMethod($newController,$newMethod,$posts);
 
-            $controller->$newMethod($post);
         }
-
+        /*
+        * GET is the result of the request method from the server
+        */
         if($method == 'GET')
         {
-            $className = "app\\controllers\\{$newController}";
-            $controller = new $className();
-
-            $controller->$newMethod($this->id);
+            $this->generateControllerMethod($newController,$newMethod,$this->id);
         }
 
     }
@@ -173,6 +170,14 @@ class Route
         var_dump($data);
         echo '</pre>';
     }
+
+    public function generateControllerMethod(string $controller, string $model, $data)
+    {
+        $className = "app\\controllers\\{$controller}";
+        $generateController = new $className();
+        $generateController->$model($data);
+    }
+
 
 }
 
