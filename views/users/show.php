@@ -6,5 +6,4 @@
 
 <?php $id = $user['id']; ?>
 
-<a href="/user/edit/<?php echo $user['id']; ?>">Editer</a>
 

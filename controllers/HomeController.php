@@ -30,6 +30,7 @@ class HomeController
 
     public function store($request)
     {
+
        Validation::check([
            $request['pseudo'] => 'required',
            $request['email'] => 'required',
@@ -42,7 +43,6 @@ class HomeController
            'password' => $request['password']
        ]);
 
-       View::redirect('/');
     }
 
     public function edit($id)
@@ -51,20 +51,4 @@ class HomeController
         View::create('users/edit','user',$user);
     }
 
-    public function update($id,$request)
-    {
-        $user = User::find($id);
-
-        Validation::check([
-            $request['pseudo'] => 'required',
-            $request['email'] => 'required',
-            $request['password'] => 'required'
-        ]);
-
-        User::update([
-            'pseudo' => $request['pseudo'],
-            'email' => $request['email'],
-            'password' => $request['password']
-        ]);
-    }
 }

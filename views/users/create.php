@@ -1,3 +1,4 @@
+<?php $protected = true; ?>
 <?php $title = "Create a new user";?>
 
 <h2>New user!</h2>

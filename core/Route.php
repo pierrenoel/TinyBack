@@ -2,11 +2,6 @@
 
 namespace app\core;
 
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-
-
 class Route
 {
     protected string $url;
@@ -33,6 +28,7 @@ class Route
         $this->method_server = $_SERVER['REQUEST_METHOD'];
 
         $this->put($this->url, $this->request, $this->controller);
+
     }
 
     /*
@@ -43,8 +39,6 @@ class Route
     {
         if($request == 'POST') $this->routes[$url]['POST'] = $controller;
         if($request == 'GET') $this->routes[$url]['GET'] = $controller;
-        if($request == 'PATCH') $this->routes[$url]['PATCH'] = $controller;
-
     }
 
     /*
@@ -94,6 +88,7 @@ class Route
      */
     protected function generate(string $method)
     {
+
         /*
          * $request returns an array of two indexes (the controller & the method)
          */
@@ -112,7 +107,7 @@ class Route
         {
             $posts = [];
 
-            foreach ($_POST as $key => $value) { $post[$key] = $value; }
+            foreach ($_POST as $key => $value) { $posts[$key] = $value; }
 
             $this->generateControllerMethod($newController,$newMethod,$posts);
 
@@ -145,6 +140,7 @@ class Route
         if($this->method_server === 'POST') $this->generate('POST');
 
         if(!isset($this->routes[$this->url]['GET']))header('Location: /');
+
     }
 
         /*
@@ -167,6 +163,7 @@ class Route
          * Call the right method from the controller, passing some data
          */
         $generateController->$model($data);
+
     }
 
     /*
@@ -187,6 +184,12 @@ class Route
     protected function explodeUrl(string $url)
     {
         return explode('/',$url);
+    }
+
+    public static function auth($func)
+    {
+        session_start();
+        if($_SESSION['connected']== false) View::redirect('/login');
     }
 
 }

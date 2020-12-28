@@ -3,7 +3,6 @@
 
 namespace app\core;
 use PDO;
-
 require_once __DIR__ . '/../config.php';
 
 class Model
